@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion Bibliothèque</title>
+    <title>Gestion de Livres - Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Application de Gestion de Bibliothèque</h1>
-        <p>Frontend HTML, CSS et JavaScript avec backend Oracle</p>
+        <h1>Portfolio Khady Lo</h1>
+        <p>Projet Niveau Bachelor : Gestion de Livres</p>
     </header>
 
-    <section id="livres">
-        <h2>Liste des Livres</h2>
-        <ul id="liste-livres">
-            <!-- Les livres apparaîtront ici -->
+    <section id="livres-section">
+        <h2>Ma bibliothèque</h2>
+
+        <input type="text" id="nouveau-livre" placeholder="Ajouter un nouveau livre">
+        <button id="ajouter-livre-btn">Ajouter</button>
+
+        <ul id="livres-list">
+            <!-- Les livres apparaîtront ici via JavaScript -->
         </ul>
-        <input type="text" id="nouveau-livre" placeholder="Nom du livre">
-        <button id="ajouter-livre">Ajouter le livre</button>
     </section>
 
     <footer>
