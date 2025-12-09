@@ -1,39 +1,27 @@
-// Liste initiale des livres
-let livres = ["Python pour débutants", "HTML & CSS avancé", "JavaScript pratique"];
-
-// Fonction pour afficher les livres dans la page
-function afficherLivres() {
-    const ul = document.querySelector("#livres-list");
-    ul.innerHTML = ""; // vider la liste
-    livres.forEach((livre, index) => {
-        const li = document.createElement("li");
-        li.textContent = livre;
-
-        // Ajouter un bouton supprimer
-        const btn = document.createElement("button");
-        btn.textContent = "Supprimer";
-        btn.onclick = () => {
-            livres.splice(index, 1);
-            afficherLivres();
-        };
-
-        li.appendChild(btn);
-        ul.appendChild(li);
-    });
-}
+// Sélectionner les éléments
+const btnAjouter = document.getElementById("btn-ajouter");
+const listeLivres = document.getElementById("livres");
+const inputTitre = document.getElementById("titre");
+const inputAuteur = document.getElementById("auteur");
 
 // Fonction pour ajouter un livre
-function ajouterLivre() {
-    const input = document.querySelector("#nouveau-livre");
-    if (input.value.trim() !== "") {
-        livres.push(input.value.trim());
-        input.value = "";
-        afficherLivres();
-    }
-}
+btnAjouter.addEventListener("click", () => {
+    const titre = inputTitre.value.trim();
+    const auteur = inputAuteur.value.trim();
 
-// Initialisation
-document.addEventListener("DOMContentLoaded", () => {
-    afficherLivres();
-    document.querySelector("#ajouter-livre-btn").onclick = ajouterLivre;
+    if (titre === "" || auteur === "") {
+        alert("Veuillez remplir le titre et l'auteur !");
+        return;
+    }
+
+    // Créer un nouvel élément de liste
+    const li = document.createElement("li");
+    li.textContent = `${titre} — ${auteur}`;
+
+    // Ajouter le livre à la liste
+    listeLivres.appendChild(li);
+
+    // Vider les champs
+    inputTitre.value = "";
+    inputAuteur.value = "";
 });
